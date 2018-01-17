@@ -36,7 +36,8 @@ public class TNSlider: UIControl {
             //Get maximum value text length
             if let maxText:String = self.delegate?.slider(self, displayTextForValue: self.maximum)
             {
-                self.thumbWidth = maxText.width(withConstraintedHeight: self.thumbHeight, font: UIFont.systemFont(ofSize: 11.0)) + 2.0
+                self.thumbWidth = maxText.width(withConstraintedHeight: self.thumbHeight, font: UIFont.systemFont(ofSize: 11.0)) + 10.0
+                thumbHeight = thumbWidth
                 thumbLayer.bounds = CGRect(x: 0, y: 0, width: thumbWidth, height: thumbHeight)
                 thumbLayer.position = CGPoint(x: positionForValue(value: minimum), y: bounds.size.height / 2)
                 thumbLayer.cornerRadius = thumbHeight / 2
@@ -157,7 +158,7 @@ public class TNSlider: UIControl {
     
     private let trackHeight: CGFloat = 4
     private let trackInset: CGFloat = 0
-    private let thumbHeight: CGFloat = 16
+    private var thumbHeight: CGFloat = 16
     private var thumbWidth: CGFloat = 38
     
     
